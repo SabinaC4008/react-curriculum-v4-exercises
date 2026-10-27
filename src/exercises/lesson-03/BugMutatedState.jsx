@@ -8,13 +8,12 @@
   incorrectly.
 */
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 export default function BugMutatedState() {
   let [count, setCount] = useState(0);
 
   function handleAdd() {
-    count++;
-    setCount(count);
+    setCount(count + 1); //I think the issue is that it's updating outside of the setCount function?
   }
 
   return (
@@ -26,4 +25,12 @@ export default function BugMutatedState() {
 }
 
 // Explanation:
-// (Write your explanation here)
+/* 
+Issue: 
+The issue is that the original code was changed outside of the setter function
+which means that the code was not re-rendering upon count changing but when setCount was being called. 
+While the function of the code is largely the same, the original code causes a lack of syncrohization between count updating and the render updating. 
+
+Fix: 
+//Changed the code to update count in the setter function so the change in count is caused by the setter function.
+*/

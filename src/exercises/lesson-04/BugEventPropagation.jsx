@@ -6,7 +6,8 @@ export default function BugEventPropagation() {
     alert("RED BOX CLICKED ❌ Don't show me!");
   }
 
-  function handleInnerClick() {
+  function handleInnerClick(event) {
+    event.stopPropagation();
     alert('Button Clicked ✅');
   }
 
@@ -21,4 +22,6 @@ export default function BugEventPropagation() {
       </div>
     </>
   );
+
+  // meet with mentor 1-on-1 to ask about code placement
 }

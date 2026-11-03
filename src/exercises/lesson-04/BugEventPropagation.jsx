@@ -23,5 +23,5 @@ export default function BugEventPropagation() {
     </>
   );
 
-  // ask to get my code check out by a mentor
+  // meet with mentor 1-on-1 to ask about code placement
 }
